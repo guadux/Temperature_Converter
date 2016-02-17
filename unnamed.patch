@@ -1,0 +1,380 @@
+Index: app/src/main/res/values-w820dp/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-w820dp/dimens.xml	(revision )
++++ app/src/main/res/values-w820dp/dimens.xml	(revision )
+@@ -0,0 +1,6 @@
++<resources>
++    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
++         (such as screen margins) for screens with more than 820dp of available width. This
++         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
++    <dimen name="activity_horizontal_margin">64dp</dimen>
++</resources>
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision )
++++ app/build.gradle	(revision )
+@@ -0,0 +1,26 @@
++apply plugin: 'com.android.application'
++
++android {
++    compileSdkVersion 23
++    buildToolsVersion "23.0.2"
++
++    defaultConfig {
++        applicationId "com.invixion.temperatureconverter"
++        minSdkVersion 8
++        targetSdkVersion 23
++        versionCode 1
++        versionName "1.0"
++    }
++    buildTypes {
++        release {
++            minifyEnabled false
++            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++        }
++    }
++}
++
++dependencies {
++    compile fileTree(dir: 'libs', include: ['*.jar'])
++    testCompile 'junit:junit:4.12'
++    compile 'com.android.support:appcompat-v7:23.1.1'
++}
+Index: app/src/test/java/com/invixion/temperatureconverter/ExampleUnitTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/test/java/com/invixion/temperatureconverter/ExampleUnitTest.java	(revision )
++++ app/src/test/java/com/invixion/temperatureconverter/ExampleUnitTest.java	(revision )
+@@ -0,0 +1,15 @@
++package com.invixion.temperatureconverter;
++
++import org.junit.Test;
++
++import static org.junit.Assert.*;
++
++/**
++ * To work on unit tests, switch the Test Artifact in the Build Variants view.
++ */
++public class ExampleUnitTest {
++    @Test
++    public void addition_isCorrect() throws Exception {
++        assertEquals(4, 2 + 2);
++    }
++}
+\ No newline at end of file
+Index: app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.gitignore	(revision )
++++ app/.gitignore	(revision )
+@@ -0,0 +1,1 @@
++/build
+Index: app/src/androidTest/java/com/invixion/temperatureconverter/ApplicationTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/androidTest/java/com/invixion/temperatureconverter/ApplicationTest.java	(revision )
++++ app/src/androidTest/java/com/invixion/temperatureconverter/ApplicationTest.java	(revision )
+@@ -0,0 +1,13 @@
++package com.invixion.temperatureconverter;
++
++import android.app.Application;
++import android.test.ApplicationTestCase;
++
++/**
++ * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
++ */
++public class ApplicationTest extends ApplicationTestCase<Application> {
++    public ApplicationTest() {
++        super(Application.class);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision )
++++ app/src/main/res/values/colors.xml	(revision )
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="colorPrimary">#3F51B5</color>
++    <color name="colorPrimaryDark">#303F9F</color>
++    <color name="colorAccent">#FF4081</color>
++    <color name="myColor">#F5F5F5</color>
++</resources>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision )
++++ app/src/main/res/values/strings.xml	(revision )
+@@ -0,0 +1,6 @@
++<resources>
++    <string name="app_name">Temperature Converter</string>
++    <string name="celsius">to Celsius</string>
++    <string name="fahrenheit">to Fahrenheit</string>
++    <string name="calc">Calculate</string>
++</resources>
+Index: app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/proguard-rules.pro	(revision )
++++ app/proguard-rules.pro	(revision )
+@@ -0,0 +1,17 @@
++# Add project specific ProGuard rules here.
++# By default, the flags in this file are appended to flags specified
++# in /home/guada/Android/Android/Sdk/tools/proguard/proguard-android.txt
++# You can edit the include path and order by changing the proguardFiles
++# directive in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# Add any project specific keep options here:
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
+Index: app/src/main/java/com/invixion/temperatureconverter/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/invixion/temperatureconverter/MainActivity.java	(revision )
++++ app/src/main/java/com/invixion/temperatureconverter/MainActivity.java	(revision )
+@@ -0,0 +1,68 @@
++package com.invixion.temperatureconverter;
++
++import android.support.v7.app.AppCompatActivity;
++import android.os.Bundle;
++//import android.app.Activity;
++import android.view.View;
++import android.widget.EditText;
++import android.widget.RadioButton;
++import android.widget.Toast;
++
++//dialogo
++import android.app.AlertDialog;
++
++public class MainActivity extends AppCompatActivity {
++
++    private EditText text;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_main);
++        text = (EditText) findViewById(R.id.inputValue);
++    }
++
++    public void clickTemp(View view) {
++
++//        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
++//        dialogo1.setCancelable(false);
++//        dialogo1.setPositiveButton("Confirmar", null);
++//        dialogo1.setMessage("click");
++//        dialogo1.show();
++
++
++                RadioButton celsiusButton = (RadioButton) findViewById(R.id.radio0);
++                RadioButton fahrenheitButton = (RadioButton) findViewById(R.id.radio1);
++                if (text.getText().length() == 0) {
++//                    dialogo1.setMessage("long =0");
++//                    dialogo1.show();
++                    Toast.makeText(this, "Please enter a valid number",
++                            Toast.LENGTH_LONG).show();
++                    return;
++                }
++
++                float inputValue = Float.parseFloat(text.getText().toString());
++//                dialogo1.setMessage("valor: "+inputValue);
++//                dialogo1.show();
++                if (celsiusButton.isChecked()) {
++//                    dialogo1.setMessage("celsius check");
++//                    dialogo1.show();
++                    text.setText(String
++                            .valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)));
++                    celsiusButton.setChecked(false);
++                    fahrenheitButton.setChecked(true);
++
++                } else {
++//                    dialogo1.setMessage("faren check");
++//                    dialogo1.show();
++                    text.setText(String
++                            .valueOf(ConverterUtil.convertCelsiusToFahrenheit(inputValue)));
++                    fahrenheitButton.setChecked(false);
++                    celsiusButton.setChecked(true);
++                }
++
++
++
++        //}
++    }
++}
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision )
++++ app/src/main/res/values/styles.xml	(revision )
+@@ -0,0 +1,11 @@
++<resources>
++
++    <!-- Base application theme. -->
++    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
++        <!-- Customize your theme here. -->
++        <item name="colorPrimary">@color/colorPrimary</item>
++        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
++        <item name="colorAccent">@color/colorAccent</item>
++    </style>
++
++</resources>
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision )
++++ app/src/main/res/layout/activity_main.xml	(revision )
+@@ -0,0 +1,54 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    android:paddingBottom="@dimen/activity_vertical_margin"
++    android:paddingLeft="@dimen/activity_horizontal_margin"
++    android:paddingRight="@dimen/activity_horizontal_margin"
++    android:paddingTop="@dimen/activity_vertical_margin"
++    tools:context=".MainActivity"
++    android:background="@color/myColor">
++
++
++    <EditText
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:id="@+id/inputValue"
++        android:inputType="numberSigned|numberDecimal"/>
++
++    <RadioGroup
++        android:id="@+id/radioGroup1"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_alignStart="@+id/inputValue"
++        android:layout_alignLeft="@+id/inputValue"
++        android:layout_below="@+id/inputValue">
++
++        <RadioButton
++            android:id="@+id/radio0"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:checked="true"
++            android:text="@string/celsius" />
++
++        <RadioButton
++            android:id="@+id/radio1"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="@string/fahrenheit" />
++    </RadioGroup>
++
++    <Button
++        android:id="@+id/button1"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_alignStart="@+id/radioGroup1"
++        android:layout_alignLeft="@+id/radioGroup1"
++        android:layout_below="@+id/radioGroup1"
++        android:layout_marginTop="22dp"
++        android:text="@string/calc"
++        android:onClick="clickTemp"/>
++
++</RelativeLayout>
+Index: app/src/main/java/com/invixion/temperatureconverter/ConverterUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/invixion/temperatureconverter/ConverterUtil.java	(revision )
++++ app/src/main/java/com/invixion/temperatureconverter/ConverterUtil.java	(revision )
+@@ -0,0 +1,17 @@
++package com.invixion.temperatureconverter;
++
++/**
++ * Created by root on 2/17/16.
++ */
++public class ConverterUtil {
++
++    public static float convertFahrenheitToCelsius(float fahrenheit) {
++        return ((fahrenheit - 32) * 5 / 9);
++    }
++
++    // converts to fahrenheit
++    public static float convertCelsiusToFahrenheit(float celsius) {
++        return ((celsius * 9) / 5) + 32;
++    }
++
++}
+Index: app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/dimens.xml	(revision )
++++ app/src/main/res/values/dimens.xml	(revision )
+@@ -0,0 +1,5 @@
++<resources>
++    <!-- Default screen margins, per the Android Design guidelines. -->
++    <dimen name="activity_horizontal_margin">16dp</dimen>
++    <dimen name="activity_vertical_margin">16dp</dimen>
++</resources>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision )
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.invixion.temperatureconverter">
++
++    <application
++        android:allowBackup="true"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:supportsRtl="true"
++        android:theme="@style/AppTheme">
++        <activity android:name=".MainActivity">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++    </application>
++
++</manifest>
