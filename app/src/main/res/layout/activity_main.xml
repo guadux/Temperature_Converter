@@ -51,4 +51,14 @@
         android:text="@string/calc"
         android:onClick="clickTemp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Listar"
+        android:id="@+id/buttonListar"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="listarClick" />
+
 </RelativeLayout>

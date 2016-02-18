@@ -1,5 +1,6 @@
 package com.invixion.temperatureconverter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 //import android.app.Activity;
@@ -50,5 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
+    }
+
+    public void listarClick(View view) {
+        Intent i = new Intent(this, Main2Activity.class);
+        startActivity(i);
     }
 }

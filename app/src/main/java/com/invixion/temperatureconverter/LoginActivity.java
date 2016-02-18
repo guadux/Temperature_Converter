@@ -31,8 +31,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -40,6 +46,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    private int byGetOrPost = 0;
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -385,6 +393,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
+
+
 
     public void accederClick(View view) {
         Intent i = new Intent(this, MainActivity.class);
