@@ -12,9 +12,12 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.TextView;
 
 public class MysqlActivity  extends AsyncTask<String,Void,String>{
@@ -70,7 +73,7 @@ public class MysqlActivity  extends AsyncTask<String,Void,String>{
                 String username = (String)arg0[0];
                 String password = (String)arg0[1];
 
-                String link="http://myphpmysqlweb.hostei.com/loginpost.php";
+                String link="http://invixion.com/loginpost.php";
                 String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
                 data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
 
@@ -91,8 +94,11 @@ public class MysqlActivity  extends AsyncTask<String,Void,String>{
                 // Read Server Response
                 while((line = reader.readLine()) != null)
                 {
+                    System.out.println(line);
+                    Log.i("Test4", line);
                     sb.append(line);
-                    break;
+                    //
+                    // break;
                 }
                 return sb.toString();
             }
@@ -105,6 +111,31 @@ public class MysqlActivity  extends AsyncTask<String,Void,String>{
     @Override
     protected void onPostExecute(String result){
         this.statusField.setText("Login Successful");
-        this.roleField.setText(result);
+//        Log.d("Test2", "hola");
+//        Log.i("Test3", "hola3");
+//        System.out.println("hola5");
+        //this.roleField.setText(result);
+
+        JSONArray ja;
+
+        try
+        {
+            ja = new JSONArray(result);
+            int len = ja.length();
+            for (int i = 0; i < len; i++)
+            {
+                JSONObject json_data = ja.getJSONObject(i);
+
+                String nombre = json_data.getString("nombre");
+
+                String ciudad = json_data.getString("ciudades_id_ciudad");
+                this.roleField.setText(nombre+" - "+ciudad);
+            }
+        }
+        catch (Exception e)
+        {
+            e.toString();
+        }
+
     }
 }
