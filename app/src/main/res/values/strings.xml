@@ -35,4 +35,11 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="action_settings">Settings</string>
+
+
+    <string name="press_add">Se presion A\u0148adir</string>
+    <string name="press_search">Se presion\U00F3 Buscar</string>
+    <string name="press_edit">Se presion Editar</string>
+    <string name="press_delete">Se presion Eliminar</string>
+    <string name="press_action_settings">Se presion Settings</string>
 </resources>
