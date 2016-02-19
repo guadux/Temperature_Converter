@@ -29,4 +29,10 @@
     <string name="Role">Not assigned</string>
     <string name="method">Login Method</string>
     <string name="Choose">Choose Method</string>
+
+    <string name="add">Add</string>
+    <string name="search">Search</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="action_settings">Settings</string>
 </resources>
