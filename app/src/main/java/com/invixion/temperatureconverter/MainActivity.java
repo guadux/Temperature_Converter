@@ -18,16 +18,12 @@ import android.support.v7.app.ActionBarActivity;
 public class MainActivity extends AppCompatActivity {
 
     private EditText text;
-    private TextView info;
-//    private ActionBar mActionbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         text = (EditText) findViewById(R.id.inputValue);
-        info =(TextView)findViewById(R.id.info);
-//        mActionbar = getActionBar();
     }
 
     @Override

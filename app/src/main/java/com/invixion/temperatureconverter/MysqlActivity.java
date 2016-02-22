@@ -105,15 +105,16 @@ public class MysqlActivity  extends AsyncTask<String,Void,String>{
             catch(Exception e){
                 return new String("Exception: " + e.getMessage());
             }
+
+
         }
     }
 
     @Override
     protected void onPostExecute(String result){
         this.statusField.setText("Login Successful");
-//        Log.d("Test2", "hola");
-//        Log.i("Test3", "hola3");
 //        System.out.println("hola5");
+        System.out.println(result);
         //this.roleField.setText(result);
 
         JSONArray ja;

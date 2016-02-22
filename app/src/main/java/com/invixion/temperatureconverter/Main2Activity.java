@@ -1,5 +1,6 @@
 package com.invixion.temperatureconverter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -48,5 +49,10 @@ public class Main2Activity extends Activity {
         String password = passwordField.getText().toString();
         method.setText("Post Method");
         new MysqlActivity(this,status,role,1).execute(username,password);
+    }
+
+    public void irAlListado(View view) {
+        Intent i = new Intent(this, Main3Activity.class);
+        startActivity(i);
     }
 }
