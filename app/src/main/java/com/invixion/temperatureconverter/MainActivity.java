@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 //import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.ActionBarActivity;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +31,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         text = (EditText) findViewById(R.id.inputValue);
+
+        testDB();
+
+    }
+
+    private void testDB(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            System.out.println("MySQL Connection ok");
+            Connection con = DriverManager.getConnection("jdbc:mysql://www.invixion.com:3306/invixion_consultorio", "invixion_consul", "dcin123:");
+            //         System.out.println("Database connection success");
+            System.out.println("Line 2");
+            String result = ("");
+            System.out.println(" Line 3");
+            Statement st = con.createStatement();
+
+            ResultSet rs = st.executeQuery("select * from medicos");
+
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                result += rsmd.getColumnName(1) + ": " + rs.getInt(1) + "\n";
+                result += rsmd.getColumnName(2) + ": " + rs.getString(2) + "\n";
+                result += rsmd.getColumnName(3) + ": " + rs.getString(3) + "\n";
+            }
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Test Error:" + e.toString());
+            Log.w("Android-system","system get connection");
+        }
     }
 
     @Override
